@@ -10,6 +10,7 @@ prohibited this user from being saved:</h2>
 </ul>
 </div>
 <% end %>
+
 <p>
 <%= f.label :name, "Username" %><br>
 <%= f.text_field :name %>
@@ -26,5 +27,9 @@ prohibited this user from being saved:</h2>
 <%= f.label :password_confirmation %><br>
 <%= f.password_field :password_confirmation %>
 </p>
+<% if @user.new_record? %>
 <%= f.submit "Sign up" %>
+<% else %>
+<%= f.submit "Update Profile" %>
+<% end %>
 <% end %>
