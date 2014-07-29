@@ -18,7 +18,8 @@ class Admin::UsersController < Admin::BaseController
 		@user = User.new(params)
 
 		if @user.save
-			flash[:notice] = "User has been created."
+			session[:user_id] = @user.id
+			flash[:notice] = "You have been signed up sucessfully"
 			redirect_to admin_users_path
 		else
 			flash.now[:alert] = "User has not been created."
